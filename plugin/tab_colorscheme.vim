@@ -75,5 +75,4 @@ endfunction
 
 
 let &cpo = s:save_cpo
-
-let g:did_tagColorscheme = 1
+let g:did_tab_colorscheme = 1
