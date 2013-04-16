@@ -1,4 +1,4 @@
-if exists('g:did_tagColorscheme')
+if exists('g:did_tab_colorscheme')
     finish
 endif
 
