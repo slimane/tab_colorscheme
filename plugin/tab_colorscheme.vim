@@ -63,7 +63,7 @@ function! s:getCmdResult(cmd)
     redir => l:var
     call s:silentExecute(a:cmd)
     redir end
-    return matchstr(l:var, '\n*\zs.*\ze$')
+    return matchstr(l:var, '\n\zs.*\ze$')
 endfunction
 
 
