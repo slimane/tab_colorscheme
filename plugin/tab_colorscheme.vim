@@ -13,17 +13,12 @@ command! -nargs=0 TabColorSchemeEnable  :let g:tab_colorscheme_is_disable = 0
 
 
 
+
 augroup tab_colorscheme.vim
     autocmd!
     autocmd TabEnter * call <SID>:setColorscheme()
     autocmd TabLeave * call <SID>:saveColorscheme()
 augroup end
-
-
-function! s:isDisable()
-    return exists('g:tab_colorscheme_is_disable')
-    \           && g:tab_colorscheme_is_disable == 1
-endfunction
 
 
 
@@ -41,10 +36,9 @@ function! <SID>:setColorscheme()
     if exists('t:coloschme')
         execute 'colorscheme ' . t:coloschme
     end
+
     doautocmd ColorScheme
 endfunction
-
-
 
 
 function! <SID>:saveColorscheme()
@@ -57,6 +51,12 @@ function! <SID>:saveColorscheme()
 endfunction
 
 
+
+
+function! s:isDisable()
+    return exists('g:tab_colorscheme_is_disable')
+    \           && g:tab_colorscheme_is_disable == 1
+endfunction
 
 
 function! s:getCmdResult(cmd)
