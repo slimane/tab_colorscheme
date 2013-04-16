@@ -8,8 +8,8 @@ set cpo&vim
 
 
 
-command! -nargs=0 TabColorSchemeDisable :let g:tab_colorscheme_is_disable = 0
-command! -nargs=0 TabColorSchemeEnable  :let g:tab_colorscheme_is_disable = 1
+command! -nargs=0 TabColorSchemeDisable :let g:tab_colorscheme_is_disable = 1
+command! -nargs=0 TabColorSchemeEnable  :let g:tab_colorscheme_is_disable = 0
 
 
 
@@ -49,7 +49,7 @@ endfunction
 
 function! <SID>:setTabColorScheme()
     if s:isDisable()
-        reutrn
+        return
     endif
 
     let t:background = &background
