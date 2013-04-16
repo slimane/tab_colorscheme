@@ -5,6 +5,14 @@ endif
 let s:save_cpo = &cpo
 set cpo&vim
 
+
+
+
+command! -nargs=0 TabColorSchemeDisable :let g:tab_colorscheme_is_disable = 0
+command! -nargs=0 TabColorSchemeEnable  :let g:tab_colorscheme_is_disable = 1
+
+
+
 augroup tab_colorscheme.vim
     autocmd!
     autocmd TabEnter * call <SID>:executeTabColorScheme()
