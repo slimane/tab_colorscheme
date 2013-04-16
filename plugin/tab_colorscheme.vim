@@ -55,7 +55,7 @@ endfunction
 
 function! s:isDisable()
     return exists('g:tab_colorscheme_is_disable')
-    \           && g:tab_colorscheme_is_disable == 1
+    \       && g:tab_colorscheme_is_disable == 1
 endfunction
 
 
