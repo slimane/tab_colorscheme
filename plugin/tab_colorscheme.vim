@@ -33,13 +33,15 @@ function! <SID>:executeTabColorScheme()
         return
     endif
 
+
+    if exists('t:background')
+        let &background = t:background
+    end
+
     if exists('t:coloschme')
         execute 'colorscheme ' . t:coloschme
     end
-
-    if exists('t:background')
-        execute 'set background=' . t:background
-    end
+    doautocmd ColorScheme
 endfunction
 
 
