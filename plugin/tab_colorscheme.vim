@@ -1,4 +1,4 @@
-if exists('g:did_tab_colorscheme')
+if exists('g:loded_tab_colorscheme')
     finish
 endif
 
@@ -75,4 +75,4 @@ endfunction
 
 
 let &cpo = s:save_cpo
-let g:did_tab_colorscheme = 1
+let g:loded_tab_colorscheme = 1
