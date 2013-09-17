@@ -23,7 +23,7 @@ augroup end
 
 
 
-function! <SID>:setColorscheme()
+function! s:setColorscheme()
     if s:isDisable()
         return
     endif
@@ -37,25 +37,30 @@ function! <SID>:setColorscheme()
         execute 'colorscheme ' . t:coloschme
     end
 
+    if get(g:, 'tab_colorscheme_transparency', 1) == 1
+    \       && exists('t:transparency')
+        let &transparency = t:transparency
+    endif
+
     doautocmd ColorScheme
 endfunction
 
 
-function! <SID>:saveColorscheme()
+function! s:saveColorscheme()
     if s:isDisable()
         return
     endif
 
     let t:background = &background
     let t:coloschme  = s:getCmdResult('colorscheme')
+    let t:transparency = &transparency
 endfunction
 
 
 
 
 function! s:isDisable()
-    return exists('g:tab_colorscheme_is_disable')
-    \       && g:tab_colorscheme_is_disable == 1
+    return get(g:, 'tab_colorscheme_is_disable', 0) == 1
 endfunction
 
 
@@ -63,7 +68,7 @@ function! s:getCmdResult(cmd)
     redir => l:var
     call s:silentExecute(a:cmd)
     redir end
-    return matchstr(l:var, '\n\zs.*\ze$')
+    return l:var[1:-1]
 endfunction
 
 
